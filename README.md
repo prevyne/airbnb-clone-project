@@ -36,3 +36,29 @@ ALX  Pro-dev backend development AirBnb clone Project.
 9. DevOps Engineer
     -Facilitates a cooperation between development and operations teams.
     -Builds continuous integration and continuous delivery (CI/CD) pipelines for faster delivery.
+
+# Technology Stack
+
+1. Django
+    -Povides a comprehensive RESTful API for handling CRUD operations on user and property data.
+
+2. GrapghQL
+    -Offers a fleible and efficient query mechanism for interacting with the backend.
+
+3. PostgreSQL
+    -A powerful relational database used for data storage.
+
+4. Celery
+    -For handling asynchronous tasks such as sending notifications or processing payments.
+
+5. Django REST Framework
+    -Povide tools for creating and managing RESTful APIs.
+
+6. Redis
+    -Used for caching and session management.
+
+7. Docker
+    -Containeriization tool for consistent development and deployment environments.
+
+8. CI/CD Pipelines
+    -Automated pipelines for testing and deploying code changes.
