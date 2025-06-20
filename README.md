@@ -62,3 +62,30 @@ ALX  Pro-dev backend development AirBnb clone Project.
 
 8. CI/CD Pipelines
     -Automated pipelines for testing and deploying code changes.
+
+# Database Design
+1. Entities required
+    -Users
+        a. Properties- One user can occupy multiple properties.
+        b. Bookings- One user can have multiple bookings.
+        c. Reviews- One user can make multiple review.
+        d. Payments- One user can make multiple payments.
+    
+    -Properties
+        a. Users- One property can only be occupied by one user.
+        b. Bookings- One property can have one booking.
+        c. Reviews- One property can be reviewed by many users.
+        d. Payments- One property can be paid for multiple times.
+    
+    -Bookings
+        a. Users- One booking can be made by one user.
+        b. Properties- One booking can be made on one property.
+        c. Payments- One booking can have multiple payment instances.
+
+    -Reviews
+        a. Users - One review can only be made by one user.
+        b. Properties- One review can be made on one property.
+    
+    -Payments
+        a. Users- One payment instance can be made by one user.
+        b. Bookings- One payment nstance can be made for multiple bookings.
