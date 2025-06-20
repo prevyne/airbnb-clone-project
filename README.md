@@ -119,3 +119,41 @@ Entities required
 7. Database Optimizations
     Indexing: Implement indexes for fast retrieval of frequently accessed data.
     Caching: Use caching strategies to reduce database load and improve performance.
+
+# API Security
+1. Authentication
+     -Strong Password Policies
+        a. Enforcement: Require users to create strong passwords (minimum length, combination of uppercase, lowercase, numbers, and special characters).
+        b. Hashing and Salting: Never store passwords in plain text. Instead, use strong, one-way cryptographic hashing algorithms (e.g., bcrypt, Argon2) with unique salts for each password. This makes it virtually impossible to reverse-engineer passwords even if the database is compromised.
+        c. Password Complexity Rules: Guide users to create strong passwords during registration.
+    
+    -Session Management
+        a. Secure Tokens: Use secure, short-lived session tokens (e.g., JWTs) that are signed and encrypted.
+        b. Expiration and Revocation: Implement session expiration and the ability to revoke sessions (e.g., on password change, logout from all devices).
+        c. Secure Cookies: Store session tokens in HttpOnly and Secure cookies to prevent Cross-Site Scripting (XSS) attacks from accessing them.
+
+    -Identity Verification(KYS- Know your customer)
+        a. For Hosts: Implement a robust identity verification process for hosts (e.g., government ID upload, facial recognition/liveness checks). This helps build trust and reduce fraudulent listings.
+        b. For Guests (Optional but Recommended for High-Value Bookings): Consider similar verification for guests for certain booking types or if suspicious activity is detected.
+
+2. Authorization
+    -Role-Based Access Control (RBAC)
+        a. Defined Roles: Clearly define roles (e.g., Guest, Host, Admin).
+        b. Permissions: Assign specific permissions to each role (e.g., Guest can book properties, Host can list properties and manage bookings for their properties, Admin can manage all users, listings, and bookings).
+        c. Granular Control: Implement granular permissions, meaning an action is only allowed if the user's role has the necessary permission for that specific resource.
+
+    -Secure API endpoints
+        a. Authentication & Authorization Checks: Every API endpoint handling sensitive operations or data must perform both authentication (is the user who they say they are?) and authorization (is this user allowed to do this action?).
+        b. Least Privilege: Ensure that users and systems are granted only the minimum necessary permissions to perform their tasks.
+
+    -Rate Limiting
+        a. Prevention of Brute-Force Attacks: Limit login attempts, password reset requests, and API calls to prevent automated attacks.
+        b. Denial-of-Service (DoS) Protection: Prevents a single malicious actor from overwhelming the server with an excessive number of requests, ensuring availability for legitimate users.
+        c. Resource Throttling: Prevents abuse of specific resource-intensive endpoints (e.g., search, image uploads) that could degrade performance for others.
+        d. Scraping Prevention: Makes it harder for bots to scrape large amounts of data from the platform.
+        e. Implementation Strategies:
+            - Per IP Address: Limit requests from a single IP.
+            - Per User/API Key: More effective for authenticated actions, as it ties the limit to a specific user account.
+            - Time Windows: Define limits over specific periods (e.g., 100 requests per minute, 1000 requests per hour).
+            - Dynamic Rate Limiting: Adjust limits based on server load or detected suspicious activity.
+            - HTTP 429 "Too Many Requests": Return this status code when a client exceeds the rate limit, often including Retry-After headers.
