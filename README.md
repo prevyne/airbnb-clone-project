@@ -157,3 +157,12 @@ Entities required
             - Time Windows: Define limits over specific periods (e.g., 100 requests per minute, 1000 requests per hour).
             - Dynamic Rate Limiting: Adjust limits based on server load or detected suspicious activity.
             - HTTP 429 "Too Many Requests": Return this status code when a client exceeds the rate limit, often including Retry-After headers.
+
+# CI/CD Pipeline Overview
+    -Definition
+        CI/CD pipelines are automated processes used in software development to streamline the creation, testing, and deployment of applications.Continuous Integration (CI) involves frequently merging code changes into a central repository, allowing early detection of issues. Continuous Delivery (CD) or Continuous Deployment (CD) automates the application's release to its intended environment, ensuring that it is readily available to users.
+
+    -Docker
+        - Containerization tool for consistent development and deployment environments.
+    -GitHub Actions
+        - GitHub Actions is a platform that allows you to automate build, test, and deployment pipelines, as well as other tasks in your software development lifecycle. It enables you to create workflows that run automatically in response to specific events, such as pushing code to a repository, opening a pull request, or creating an issue.
